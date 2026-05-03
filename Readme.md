@@ -43,7 +43,6 @@ Image-Quality-Classification/
 ├── validate.py             # Validation loop
 ├── eval.py                 # Evaluation — metrics + confusion matrix
 ├── inference.py            # Inference script
-├── dataloader.py           # DataLoader setup
 ├── dataset_prep.py         # MultiLabelDataset class
 ├── transforms.py           # Train / val image transforms
 ├── metrics.py              # Precision, recall, F1 computation
