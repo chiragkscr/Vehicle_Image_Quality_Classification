@@ -217,13 +217,13 @@ python eval.py \
 Prints per-class precision, recall, F1, and renders a confusion matrix.
 
 
-## Qualitative Analysis
+# Qualitative Analysis
  
 ### Failure Analysis
  
 **Case 1 — Blurry and low light at the same time**
  
-This was the most common failure we observed. When an image is both slightly blurred and slightly underexposed, neither score on its own crosses the threshold, so the image gets accepted despite being unusable. The model was trained on single-defect examples, so it never learned to treat the two together as a combined rejection signal. Lowering both thresholds to around 0.35 helps catch these.
+This was the most common failure we observed. When an image is both slightly blurred and slightly underexposed, neither score on its own crosses the threshold, so the image gets accepted despite being unusable. The model was trained on single-defect examples, so it never learned to treat the two together as a combined rejection signal. Lowering `--threshold` to around 0.35 helps catch these cases.
  
 **Case 2 — Mild defocus slipping through**
  
@@ -237,8 +237,8 @@ Black or dark vehicles photographed in normal daylight would sometimes get incor
  
 ### Edge Case Discussion
  
-**Partial blur** — if only the background is blurred and the vehicle is sharp, the model tends to give a middling blur score that sits right at the threshold. Lowering `--blur_th` slightly is the safer call here since a false accept is worse than a false reject in this pipeline.
+**Partial blur** — if only the background is blurred and the vehicle is sharp, the model tends to give a middling blur score that sits right at the threshold. Lowering `--threshold` slightly is the safer call here since a false accept is worse than a false reject in this pipeline.
  
 **Uneven lighting / shadows** — a vehicle half in shade produces patchy luminance that the model reads as mild low light. This is actually a fair call since shadowed areas can genuinely hide damage.
  
-**Both blur and low light together** — as in Case 1, the OR-gate only works if at least one score crosses the threshold on its own. For co-occurring mild defects, reducing thresholds or adding a rule like reject if `blur_score + low_light_score > 0.7` is a practical fix.
+**Both blur and low light together** — as in Case 1, the OR-gate only works if at least one score independently crosses the threshold. For co-occurring mild defects, lowering `--threshold` is the most straightforward fix.
