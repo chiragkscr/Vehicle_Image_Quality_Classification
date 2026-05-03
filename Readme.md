@@ -227,7 +227,7 @@ This was the most common failure we observed. When an image is both slightly blu
  
 **Case 2 — Mild defocus slipping through**
  
-Images with very slight, uniform defocus — sharp enough to see the car but not sharp enough for scratch detection — would score just under 0.5 and get accepted. These are the riskiest failures since bad images are quietly getting through rather than being flagged.
+Images with very slight, uniform defocus — sharp enough to see the car but not sharp enough for detection — would score just under 0.5 and get accepted. These are the riskiest failures since bad images are quietly getting through rather than being flagged.
  
 **Case 3 — Dark-coloured vehicle in good lighting (false low-light)**
  
