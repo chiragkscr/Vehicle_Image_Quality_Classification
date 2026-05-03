@@ -55,6 +55,13 @@ Image-Quality-Classification/
 ---
 
 ## Setup
+### Clone the Repository
+ 
+```bash
+git clone https://github.com/chiragkscr/Vehicle_Image_Quality_Classification.git
+cd Vehicle_Image_Quality_Classification
+```
+
 
 ### Automated (recommended)
 
