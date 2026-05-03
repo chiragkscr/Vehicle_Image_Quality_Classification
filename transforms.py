@@ -1,0 +1,22 @@
+import torchvision.transforms as T
+
+
+def get_train_transforms():
+    return T.Compose([
+        T.Resize((224, 224)),
+        T.RandomHorizontalFlip(),
+        T.RandomRotation(10),
+        T.ColorJitter(brightness=0.2, contrast=0.2),  
+        T.ToTensor(),
+        T.Normalize([0.485, 0.456, 0.406],
+                    [0.229, 0.224, 0.225])
+    ])
+
+
+def get_val_transforms():
+    return T.Compose([
+        T.Resize((224, 224)),
+        T.ToTensor(),
+        T.Normalize([0.485, 0.456, 0.406],
+                    [0.229, 0.224, 0.225])
+    ])
