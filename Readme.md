@@ -128,7 +128,7 @@ data/
 | Batch size | 32 |
 | Optimizer | Adam (lr = 1e-4) |
 | Loss | BCEWithLogitsLoss |
-| Epochs | 10 |
+| Epochs | 50 |
 
 ---
 
